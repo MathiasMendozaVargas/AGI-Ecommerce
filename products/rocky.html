@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial General Intelligence 🧠</title>
+    <link rel="stylesheet" href="/resources/css/styles.css">
+    <!-- Product Description Css file -->
+    <link rel="stylesheet" href="../resources/css/products-page.css">
+    <!-- Bootstrap 5 / CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap 5 / JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/919c0a277c.js" crossorigin="anonymous"></script>
+    <!-- AOS Effects CDNs -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Home Section -->
+    <div id="home">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" style="background-color: #0c0c0c !important;">
+        <a class="navbar-brand" href="#">
+          <img class="brand-logo" src="../resources/media/bran-logo.png" alt="">
+          <span class="brand-name">Artificial General Intelligence</span>
+          <span class="brandAlt-name">AGI</span>
+        </a>
+        <button id="hamburguer" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="redirect('../products.html')">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#our-future">Our Future</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-us">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="product-body-page">
+      <div class="row">
+        <div class="col-lg-5">
+          <div data-aos="zoom-in" class="left">
+            <img src="../resources/media/rockyRobot.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div data-aos="fade-left" class="right">
+            <div class="container">
+                <h1>Rocky</h1>
+                <p>Rocky is a cutting-edge police android officer designed to make the world a safer place. With its advanced technology and innovative features, Rocky is capable of performing a wide range of tasks, from patrolling streets to responding to emergency situations. Rocky is equipped with sensors, cameras, and speech recognition systems, allowing it to navigate and interact with its environment, recognize objects, and respond to spoken commands.</p>
+                <p><b>Price:</b> $<span id="productPrice">1850.50</span></p>
+                <a href="#" onclick="redirect('../products.html')">Back to Products</a>
+                <a href="#" onclick="redirect('../index.html')">Back to Main Menu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Section -->
+    <footer>
+      <div class="bg-dark">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="socials">
+              <a target="_blank" href="https://www.instagram.com/mathiasmendozav">
+                <i class="fa-brands fa-instagram"></i> Instagram </a>
+              <a target="_blank" style="margin-left: 15px;" href="https://github.com/MathiasMendozaVargas">
+                <i class="fa-brands fa-github"></i> Github </a>
+            </p>
+            <p class="socials"></p>
+            <hr id="socket">
+            <p id="copyWrite">
+              <i class="fa-regular fa-copyright"></i> MathiasMendoza / 2022
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <!-- Script Source Files -->
+  <script src="../resources/js/products.js"></script>
+  <script>
+    function redirect(loc) {
+      setTimeout(() => {
+        window.location.href = loc;
+      }, 900)
+    }
+  </script>
+  <script>
+    $('.navbar-collapse a').click(function() {
+      setTimeout(function() {
+        $(".navbar-collapse").collapse('hide');
+      }, 800);
+    });
+  </script>
+</html>

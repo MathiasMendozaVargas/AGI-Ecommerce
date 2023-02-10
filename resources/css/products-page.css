@@ -1,0 +1,81 @@
+/* CSS file for products description page */
+
+.product-body-page{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    padding-top: 5vh;
+    padding-bottom: 20vh;
+}
+
+.product-body-page .row{
+    height: 100%;
+}
+
+.product-body-page .left{
+    height: 100%;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.product-body-page .left img{
+    width: 400px !important;
+    border-radius: 25px;
+}
+
+.product-body-page .right{
+    height: 100%;
+    background-color: white;
+    text-align: left;
+    padding-top: 200px;
+    padding-right: 100px;
+}
+.product-body-page .right h1{
+    font-size: 55px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.product-body-page .right p{
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.product-body-page .right a{
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    margin-right: 5px;
+}
+.product-body-page .right a:hover{
+    background-color: rgb(36, 36, 36);
+    color: white;
+}
+
+/* MEDIA STYLES */
+@media (max-width: 1250px) {
+    .product-body-page .left img{
+        width: 350px !important;
+    }
+}
+@media (max-width: 991px) {
+    .product-body-page{
+        padding-top: 0vh;
+        padding-bottom: 12vh;
+    }
+    .product-body-page .right{
+        padding-top: 50px !important;
+        padding-right: 0px !important;
+        text-align: center;
+    }
+    .product-body-page .right h1{
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .product-body-page .left img{
+        width: 80% !important;
+    }
+}

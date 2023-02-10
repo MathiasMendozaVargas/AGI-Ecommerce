@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Artificial General Intelligence 🧠</title>
+   <link rel="stylesheet" href="/resources/css/styles.css">
+   <!-- Bootstrap 5 / CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <!-- Bootstrap 5 / JS -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <!-- Google Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+   <!-- FontAwesome Icons -->
+   <script src="https://kit.fontawesome.com/919c0a277c.js" crossorigin="anonymous"></script>
+   <!-- AOS Effects CDNs -->
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <!-- Jquery CDN -->
+   <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+   <!-- Home Section -->
+   <div id="home">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" style="background-color: #0c0c0c !important;">
+        <a class="navbar-brand" href="./index.html" onclick="redirect('./index.html')"><img class="brand-logo" src="./resources/media/bran-logo.png" alt=""><span class="brand-name">Artificial General Intelligence</span><span class="brandAlt-name">AGI</span></a>
+           <span class="basquet-container">
+               <div class="dropdown">
+                   <button class="btn btn-secondary dropdownBtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                       <div class="cartDiv">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="cartCountDiv">
+                                    <span id="cartCount">0</span>
+                            </div>
+                       </div>
+                   </button>
+                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                       <div class="upper-cart">
+                           <div class="subtotal">
+                               <h6><b>Subtotal:</b> $<span id="subtAmount">0.00</span></h6>
+                           </div>
+                       </div>
+                       <li id="ifEmpty"><p>Your cart is empty</p></li>
+                   </ul>
+                   
+                 </div>
+               <button id="hamburguer" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                     <li class="nav-item">
+                       <a class="nav-link active" aria-current="page" onclick="redirect('./products.html')" href="#">Products</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#our-future">Our Future</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#about-us">About Us</a>
+                      </li>
+                   </ul>
+                 </div>
+           </span>
+      </nav>
+       <div class="home-background">
+         <video autobuffer autoplay muted playsinline loop id="videoBg" src="/resources/media/homeBackground.mp4"></video>
+       </div>
+   </div>
+   <!-- Robots Catalog -->
+   <div id="products" class="offset">
+    <div class="row text-center">
+    <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay='200' class="card">
+            <img src="/resources/media/guardianRobotwithBg.png" alt="">
+            <div class="card-body">
+                <h3>Prometheus</h3>
+                <p>First male humanoid robot capable of doing anything that a human can, our first AGI!</p>
+                <div class="card-price">
+                    <p><b>Price:</b> $<span id="productPrice">2050.99</span></p>
+                </div>
+                <div class="card-btns">
+                    <div class="card-btns-left">
+                        <a href="#" onClick="redirect('./products/prometheus.html')" class="see-product">See Product</a>
+                    </div>
+                    <div class="card-btns-right">
+                        <a class="addProductBtn" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay='200' class="card">
+            <img src="/resources/media/womenRobot.png" alt="">
+            <div class="card-body">
+                <h3>Eva</h3>
+                <p>First female humanoid robot capable of doing anything that a human can!</p>
+                <div class="card-price">
+                    <p><b>Price:</b> $<span id="productPrice">2050.99</span></p>
+                </div>
+                <div class="card-btns">
+                    <div class="card-btns-left">
+                        <a href="#" onClick="redirect('./products/eva.html')" class="see-product">See Product</a>
+                    </div>
+                    <div class="card-btns-right">
+                        <a class="addProductBtn" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay='200' class="card">
+            <img src="/resources/media/hostRobot.png" alt="">
+            <div class="card-body">
+                <h3>Chappie</h3>
+                <p>Ideal for housing, business operations, factory operations, and a lot more!</p>
+                <div class="card-price">
+                    <p><b>Price:</b> $<span id="productPrice">960.65</span></p>
+                </div>
+                <div class="card-btns">
+                    <div class="card-btns-left">
+                        <a href="#" onClick="redirect('./products/chappie.html')" class="see-product">See Product</a>
+                    </div>
+                    <div class="card-btns-right">
+                        <a class="addProductBtn" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay='200' class="card">
+            <img src="/resources/media/rockyRobot.png" alt="">
+            <div class="card-body">
+                <h3>Rocky</h3>
+                <p>Police Android officer that will make the world a safer place!</p>
+                <div class="card-price">
+                    <p><b>Price:</b> $<span id="productPrice">1850.50</span></p>
+                </div>
+                <div class="card-btns">
+                    <div class="card-btns-left">
+                        <a href="#" onClick="redirect('./products/rocky.html')" class="see-product">See Product</a>
+                    </div>
+                    <div class="card-btns-right">
+                        <a class="addProductBtn" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay='200' class="card">
+            <img src="/resources/media/dogRobot.png" alt="">
+            <div class="card-body">
+                <h3>Scooby</h3>
+                <p>This little android dog is the perfect pet, capable of feeling the unconditional human love!</p>
+                <div class="card-price">
+                    <p><b>Price:</b> $<span id="productPrice">330.50</span></p>
+                </div>
+                <div class="card-btns">
+                    <div class="card-btns-left">
+                        <a href="#" onClick="redirect('./products/scooby.html')" class="see-product">See Product</a>
+                    </div>
+                    <div class="card-btns-right">
+                        <a class="addProductBtn" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay='200' class="card">
+            <img src="/resources/media/aristotleRobot.png" alt="">
+            <div class="card-body">
+                <h3>Aristotle</h3>
+                <p>The ideal philosophy teacher for High Schools and universities!</p>
+                <div class="card-price">
+                    <p><b>Price:</b> $<span id="productPrice">1749.00</span></p>
+                </div>
+                <div class="card-btns">
+                    <div class="card-btns-left">
+                        <a href="#" onClick="redirect('./products/aristotle.html')" class="see-product">See Product</a>
+                    </div>
+                    <div class="card-btns-right">
+                        <a class="addProductBtn" href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+   <!-- Our Future Section -->
+   <div id="our-future" class="offset">
+      <div class="bg-dark">
+         <div class="row">
+            <div class="col-md-7">
+               <div data-aos="fade-right" class="left-side">
+                  <h1>The most powerful Decentralized AI Network in the universe!</h1>
+                  <p>With our decentralized AI Network you could power up entire countries with state of the art technology and make the world a better placed.</p>
+               </div>
+            </div>
+            <div class="col-md-5">
+               <div data-aos="fade-left" data-aos-duration="2000" class="right-side">
+                  <img src="./resources/media/planetConnected2.png" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- About Us Section -->
+   <div id="about-us" class="offset">
+      <div class="bg-lightt">
+         <div class="row">
+            <div class="col-md-5">
+               <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000" class="left-side">
+                  <img src="./resources/media/bran-logo.png" alt="">
+               </div>
+            </div>
+            <div class="col-md-7">
+               <div class="right-side">
+                  <div data-aos="fade-left">
+                     <h1>Artificial General Intelligence</h1>
+                     <p>We move forward to the future, creating cool stuff that humans love, and changing the world for the better! We're also the company that created the first Artificial General Intelligence, able to do <b>everything</b> that a human can.</b></v></p>
+                  </div>
+                  <div class="row">
+                     <div data-aos="fade-right" data-aos-delay="800" class="col-md-5">
+                        <img src="./resources/media/monkey.png" alt="">
+                     </div>
+                     <div data-aos="zoom-in" class="col-md-2">
+                        <img id="arrowRight" src="./resources/media/arrowRight.png" alt="">
+                     </div>
+                     <div data-aos="fade-left" data-aos-delay="800" class="col-md-5">
+                        <img src="./resources/media/human.png" alt="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Footer Section -->
+   <footer>
+      <div class="bg-dark">
+         <div class="row">
+            <div class="col-md-12">
+               <p class="socials"><a target="_blank" href="https://www.instagram.com/mathiasmendozav"><i class="fa-brands fa-instagram"></i> Instagram</a> <a target="_blank" style="margin-left: 15px;" href="https://github.com/MathiasMendozaVargas"><i class="fa-brands fa-github"></i> Github</a></p>
+               <p class="socials"></p>
+               <hr id="socket">
+               <p id="copyWrite"><i class="fa-regular fa-copyright"></i> MathiasMendoza / 2022</p>
+            </div>
+         </div>
+      </div>
+   </footer>
+</body>
+<!-- Script Source Files -->
+<script src="./resources/js/index.js"></script>
+<script src="./resources/js/products.js"></script>
+
+<script>
+   function redirect(loc){
+     setTimeout(() => {
+       window.location.href=loc;
+     }, 900)
+   }
+</script>
+<script>
+   $('.navbar-collapse a').click(function(){
+      setTimeout(function(){
+         $(".navbar-collapse").collapse('hide');
+      }, 800);
+   });
+</script>
+</html>

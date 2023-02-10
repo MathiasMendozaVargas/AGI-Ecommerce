@@ -1,0 +1,137 @@
+$(document).ready(function(){
+    AOS.init({
+        offset: 200,
+        duration: 1000,
+        delay: 800
+    });
+
+    const addProductBtn = $('.addProductBtn')
+    const cartUL = $('.dropdown-menu')
+    
+    addProductBtn.click(function(){
+        let card = $(this).parent().parent().parent().parent()
+        let productName = card.children().children('h3').text()
+
+        function procesNewLi(){
+            var isAlready = false
+
+            // Checking if the cart is empty and for repeated products
+            if(cartUL.children().length > 1){
+                for(var i=1; i < cartUL.children().length; i++){
+                    let currName = cartUL.children()[i].children[2].innerText
+                    
+                    console.log(currName);
+                    console.log(`${productName} Hello`);
+                    if(currName === productName){
+                        isAlready = true
+                        break
+                    }else{
+                        isAlready = false
+                    }
+                }
+            }
+
+            // If product is not in cart
+            if(isAlready === false){
+                // Get the Img Src
+                let imgSrc = card.children('img').attr('src')
+
+                // Img Element
+                let imgEl = document.createElement('img')
+                imgEl.setAttribute('src', imgSrc)
+
+                // Li element
+                let newLi = document.createElement('li')
+                newLi.setAttribute('id', productName)
+
+                // Count of the product element
+                let countEl = document.createElement('p')
+                countEl.append('x ')
+                let amountProduct = document.createElement('span')
+                amountProduct.setAttribute('id', 'amountProduct')
+                amountProduct.append('1')
+                countEl.appendChild(amountProduct)
+
+                // Name Element
+                let nameEl = document.createElement('p')
+                nameEl.append(productName)
+
+                // Current Price Element
+                let currPriceEl = document.createElement('p')
+                currPriceEl.append('$ ')
+
+                let newPriceSpan = document.createElement('span')
+
+                // Get the price of the selected product
+                let selectedPrice = card.children().children()[2].children[0].children[1].innerText
+                newPriceSpan.append(selectedPrice)
+
+                currPriceEl.appendChild(newPriceSpan)
+
+
+                newLi.appendChild(countEl)
+                newLi.appendChild(imgEl)
+                newLi.appendChild(nameEl)
+                newLi.appendChild(currPriceEl)
+
+                cartUL.append(newLi)
+            }
+
+            // Encrease product quantity if product is already in cart
+            else{
+                let spanCount = document.getElementById(productName).children[0].children[0]
+                let currAmount = parseInt(spanCount.innerText)
+                let newAmount = currAmount += 1
+
+                spanCount.innerText = newAmount
+
+                console.log(newAmount);
+            }
+        }
+
+        function updateSubtotal(){
+            if(cartUL.children().length > 1){
+                let subtotal = 0.00
+
+                for(var i=1; i < cartUL.children().length; i++){
+                    let price = Number(cartUL.children()[i].children[3].children[0].innerText)
+                    let quantity = Number(cartUL.children()[i].children[0].children[0].innerText)
+                    
+                    subtotal = subtotal + (price * quantity)
+                }
+                subtotal = Math.round(subtotal * 100) / 100
+                $("#subtAmount")[0].innerText = subtotal
+            }
+        }
+
+        function updateCartCount(){
+            let globalQuantity = 0
+
+            if(cartUL.children().length > 1){
+                for(var i=1; i < cartUL.children().length; i++){
+                    let quantity = Number(cartUL.children()[i].children[0].children[0].innerText)
+                    
+                    globalQuantity += quantity 
+                }
+            }
+
+            $('#cartCount')[0].innerText = globalQuantity
+        }
+
+        // Checking if "Empty Li" object exists
+        // in order to remove it 
+        if($("#ifEmpty")){
+            $("#ifEmpty").remove()
+            console.log("removed");
+            procesNewLi()
+            updateCartCount()
+            updateSubtotal()
+        }
+        // If if doesn't, we keep going...
+        else{
+            procesNewLi()
+            updateCartCount()
+            updateSubtotal()
+        }
+    })
+})
