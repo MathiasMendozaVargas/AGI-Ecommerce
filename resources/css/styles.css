@@ -49,6 +49,7 @@ body{
    margin-left: auto !important;
 }
 
+
 .cart-box{
    display: flex;
    justify-content: center;
@@ -84,6 +85,11 @@ body{
    border: none !important;
    outline: none !important;
    box-shadow: none !important;
+}
+
+.amountControl a{
+   color: white;
+   text-decoration: none;
 }
 
 #hamburguer{
