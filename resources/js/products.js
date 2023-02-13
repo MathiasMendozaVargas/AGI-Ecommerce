@@ -5,6 +5,14 @@ $(document).ready(function() {
         delay: 800
     });
 
+    // Prevent dropdown cart not to close when clicked
+    $('.basquet-container').on('hide.bs.dropdown', function (e) {
+        if (e.clickEvent) {
+          e.preventDefault();
+        }
+    });
+
+
     const addProductBtn = $('.addProductBtn')
     const cartUL = $('.dropdown-menu')
 
@@ -42,6 +50,22 @@ $(document).ready(function() {
                 let newLi = document.createElement('li')
                 newLi.setAttribute('id', productName)
 
+
+                // Create Div for amount Control
+                let countControlDiv = document.createElement('div')
+                countControlDiv.classList.add('amountControl')
+                
+                // then the button with icons
+                let encreaseAmountBtn = document.createElement('a')
+                encreaseAmountBtn.setAttribute('href', '#')
+                encreaseAmountBtn.classList.add('addAmountIcon')
+                encreaseAmountBtn.innerHTML = '<i class="fa-solid fa-chevron-up"></i>'
+
+                let decreaseAmountBtn = document.createElement('a')
+                decreaseAmountBtn.setAttribute('href', '#')
+                decreaseAmountBtn.classList.add('reduceAmountIcon')
+                decreaseAmountBtn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>'
+
                 // Count of the product element
                 let countEl = document.createElement('p')
                 countEl.append('x ')
@@ -49,6 +73,11 @@ $(document).ready(function() {
                 amountProduct.setAttribute('id', 'amountProduct')
                 amountProduct.append('1')
                 countEl.appendChild(amountProduct)
+
+                // Assembling the amount control div
+                countControlDiv.append(encreaseAmountBtn)
+                countControlDiv.append(countEl)
+                countControlDiv.append(decreaseAmountBtn)
 
                 // Name Element
                 let nameEl = document.createElement('p')
@@ -68,17 +97,18 @@ $(document).ready(function() {
 
 
                 // Append children to li & append li to ul
-                newLi.appendChild(countEl)
+                newLi.appendChild(countControlDiv)
                 newLi.appendChild(imgEl)
                 newLi.appendChild(nameEl)
                 newLi.appendChild(currPriceEl)
+                console.log(newLi);
 
                 cartUL.append(newLi)
             }
 
             // Encrease product quantity if product is already in cart
             else {
-                let spanCount = document.getElementById(productName).children[0].children[0]
+                let spanCount = document.getElementById(productName).children[0].children[1].children[0]
                 let currAmount = parseInt(spanCount.innerText)
                 let newAmount = currAmount += 1
 
@@ -86,6 +116,7 @@ $(document).ready(function() {
             }
         }
 
+        // Update the subtotal
         const updateSubtotal = () => {
             if (cartUL.children().length > 1) {
                 let subtotal = 0.00
@@ -101,6 +132,7 @@ $(document).ready(function() {
             }
         }
 
+        // Update Cart Count Indicator
         const updateCartCount = () => {
             let globalQuantity = 0
 
@@ -129,5 +161,15 @@ $(document).ready(function() {
             updateCartCount()
             updateSubtotal()
         }
+    })
+
+
+    // Encreasing and reducing quantity functions will be here...
+    $('.addAmountIcon').click(function() {
+        console.log(this);
+    })
+
+    $('.reduceAmountIcon').click(function() {
+        console.log(this);
     })
 })
