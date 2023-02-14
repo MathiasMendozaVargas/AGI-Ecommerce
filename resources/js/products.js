@@ -4,6 +4,7 @@ $(document).ready(function() {
         duration: 1000,
         delay: 800
     });
+    
 
     // Prevent dropdown cart not to close when clicked
     $('.basquet-container').on('hide.bs.dropdown', function (e) {
@@ -12,7 +13,6 @@ $(document).ready(function() {
         }
     });
 
-
     const addProductBtn = $('.addProductBtn')
     const cartUL = $('.dropdown-menu')
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
         let card = $(this).parent().parent().parent().parent()
         let productName = card.children().children('h3').text()
 
-        const procesNewLi = () => {
+        function procesNewLi() {
             var isAlready = false
 
             // Checking if the cart is empty and for repeated products
@@ -123,7 +123,7 @@ $(document).ready(function() {
 
                 for (var i = 1; i < cartUL.children().length; i++) {
                     let price = Number(cartUL.children()[i].children[3].children[0].innerText)
-                    let quantity = Number(cartUL.children()[i].children[0].children[0].innerText)
+                    let quantity = Number(cartUL.children()[i].children[0].children[1].children[0].innerText)
 
                     subtotal = subtotal + (price * quantity)
                 }
@@ -138,13 +138,81 @@ $(document).ready(function() {
 
             if (cartUL.children().length > 1) {
                 for (var i = 1; i < cartUL.children().length; i++) {
-                    let quantity = Number(cartUL.children()[i].children[0].children[0].innerText)
+                    let quantity = Number(cartUL.children()[i].children[0].children[1].children[0].innerText)
 
                     globalQuantity += quantity
                 }
             }
 
             $('#cartCount')[0].innerText = globalQuantity
+
+
+            $('.addAmountIcon').click(function(){
+                let currProductQuantity = Number(this.parentNode.children[1].children[0].innerText)
+                currProductQuantity += 1
+
+                this.parentNode.children[1].children[0].innerText = currProductQuantity
+
+                // Recalculate Cart Count
+                let globalQuantity = 0
+
+                for (var i = 1; i < cartUL.children().length; i++) {
+                    let productQuantity = Number(cartUL.children()[i].children[0].children[1].children[0].innerText)
+                    console.log(productQuantity);
+                    globalQuantity += productQuantity
+                }
+                
+                $('#cartCount')[0].innerText = globalQuantity
+
+                // Recalculate The Subtotal
+                let subtotal = 0.00
+
+                for (var i = 1; i < cartUL.children().length; i++) {
+                    let price = Number(cartUL.children()[i].children[3].children[0].innerText)
+                    let quantity = Number(cartUL.children()[i].children[0].children[1].children[0].innerText)
+
+                    subtotal = subtotal + (price * quantity)
+                }
+                subtotal = Math.round(subtotal * 100) / 100
+                $("#subtAmount")[0].innerText = subtotal
+            })
+
+            $('.reduceAmountIcon').click(function(){
+                // Reducing quantity of product in cart
+                let currProductQuantity = Number(this.parentNode.children[1].children[0].innerText)
+                
+                // Checking if quantity is more than 0
+                if(currProductQuantity > 0){
+                    currProductQuantity -= 1
+                }else{
+                    currProductQuantity = 0
+                }
+
+                this.parentNode.children[1].children[0].innerText = currProductQuantity
+
+                // Recalculate Cart Count
+                let globalQuantity = 0
+
+                for (var i = 1; i < cartUL.children().length; i++) {
+                    let productQuantity = Number(cartUL.children()[i].children[0].children[1].children[0].innerText)
+
+                    globalQuantity += productQuantity
+                }
+                
+                $('#cartCount')[0].innerText = globalQuantity
+
+                // Recalculate The Subtotal
+                let subtotal = 0.00
+
+                for (var i = 1; i < cartUL.children().length; i++) {
+                    let price = Number(cartUL.children()[i].children[3].children[0].innerText)
+                    let quantity = Number(cartUL.children()[i].children[0].children[1].children[0].innerText)
+
+                    subtotal = subtotal + (price * quantity)
+                }
+                subtotal = Math.round(subtotal * 100) / 100
+                $("#subtAmount")[0].innerText = subtotal
+            })
         }
 
         // Checking if "Empty Li" element exists
@@ -161,15 +229,5 @@ $(document).ready(function() {
             updateCartCount()
             updateSubtotal()
         }
-    })
-
-
-    // Encreasing and reducing quantity functions will be here...
-    $('.addAmountIcon').click(function() {
-        console.log(this);
-    })
-
-    $('.reduceAmountIcon').click(function() {
-        console.log(this);
     })
 })
